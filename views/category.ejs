@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      <%= categoryName.replace('-', ' ').toUpperCase() %> - Heavy Equipments
+      Rental
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/homePage.css" />
+    <link rel="icon" href="/images/logo2.png" type="image/png" />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <%- include('partials/header') %>
+
+    <section class="container mx-auto px-6 py-10">
+      <h1 class="text-4xl font-bold mb-10">
+        <%= categoryName.replace('-', ' ').toUpperCase() %>
+      </h1>
+
+      <% if (items.length === 0) { %>
+      <!-- No items available -->
+      <div class="text-center text-xl font-semibold text-red-500">
+        No items available for rent at the moment.
+      </div>
+      <% } else { %>
+      <!-- Items available -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <% items.forEach(function(item) { %>
+        <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+          <img
+            src="<%= item.imageUrl %>"
+            alt="<%= item.name %>"
+            class="w-auto h-auto object-contain"
+          />
+          <div class="p-4 flex flex-row space-y-4 justify-around">
+            <div>
+              <h2 class="text-lg font-bold mb-1"><%= item.name %></h2>
+              <% Object.keys(item).forEach(function(key) { if (key !== 'name' &&
+              key !== 'imageUrl' && key !== 'specSheetUrl') { const formattedKey
+              = key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str =>
+              str.toUpperCase()); %>
+              <p class="text-sm">
+                <strong><%= formattedKey %>:</strong>
+                <span class="ml-2"><%= item[key] %></span>
+              </p>
+              <% } }); %>
+            </div>
+            <div class="flex flex-col justify-between items-center">
+              <a
+                href="<%= item.specSheetUrl %>"
+                target="_blank"
+                class="text-blue-500 hover:underline text-sm"
+              >
+                Download Spec Sheet
+              </a>
+              <div class="flex flex-col space-x-2 items-baseline gap-2">
+                <a
+                  href="/contact?type=hire&item=<%= encodeURIComponent(item.name) %>"
+                  class="bg-yellow-500 text-black px-3 py-1 text-sm rounded hover:bg-yellow-400"
+                >
+                  Enquire to Hire
+                </a>
+                <a
+                  href="/contact?type=buy&item=<%= encodeURIComponent(item.name) %>"
+                  class="bg-yellow-500 text-black px-3 py-1 text-sm rounded hover:bg-yellow-400"
+                >
+                  Enquire to Buy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+      <% } %>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6 text-center">
+      <p>&copy; 2024 Heavy Equipment Rental. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

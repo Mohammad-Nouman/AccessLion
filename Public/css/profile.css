@@ -1,0 +1,121 @@
+/* public/styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.profile-header {
+  border-left: 5px solid #e30513;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-header h1 {
+  color: #e30513;
+  font-size: 24px;
+}
+
+.profile-content p {
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.profile-content ul {
+  margin-left: 20px;
+  list-style-type: disc;
+  margin-bottom: 20px;
+}
+
+.industries {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.industry {
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.industry img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.industry p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  margin-top: 10px;
+}
+
+.logos,
+.industry {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.industry,
+.diverse {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.diverse img {
+  max-width: 40%;
+  height: auto;
+  margin: 0 10px;
+}
+
+.logos img,
+.industry img {
+  max-width: 30%;
+  height: auto;
+  margin: 0 10px;
+}
+
+.diverse-partners {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.diverse,
+.partners {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.diverse h3,
+.partners h3 {
+  color: #e30513;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.diverse ul,
+.partners ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.diverse ul li,
+.partners ul li {
+  margin-bottom: 5px;
+}

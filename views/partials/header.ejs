@@ -1,0 +1,97 @@
+<!-- Top Bar -->
+<div
+  class="top-bar bg-gray-800 text-white text-sm flex justify-between items-center p-2"
+>
+  <span>📞 +971 54 2811111</span>
+  <a
+    href="https://wa.me/971542811111"
+    target="_blank"
+    class="flex items-center text-white hover:text-yellow-500"
+  >
+    <img
+      src="/images/header/whatsapp-logo-1.png"
+      alt="WhatsApp"
+      class="w-5 h-5 mr-2"
+    />
+    WhatsApp Us
+  </a>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="bg-gray-700 text-white p-2">
+  <div class="container mx-auto flex justify-between items-center flex-wrap">
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-bold">
+      <img src="/images/logo.png" alt="Company Logo" class="h-10" />
+    </a>
+    <!-- Navigation Links -->
+    <div class="flex flex-wrap items-center">
+      <a href="/" class="hover:text-yellow-500 mx-2 md:mx-4">Home</a>
+      <a href="/about" class="hover:text-yellow-500 mx-2 md:mx-4">About Us</a>
+      <a href="/rent" class="hover:text-yellow-500 mx-2 md:mx-4">Rent</a>
+      <!-- <a href="/buy" class="hover:text-yellow-500 mx-2 md:mx-4">Buy</a> -->
+      <!-- <a href="/training-courses" class="hover:text-yellow-500 mx-2 md:mx-4">Training Courses</a> -->
+      <a href="/contact" class="hover:text-yellow-500 mx-2 md:mx-4"
+        >Contact Us</a
+      >
+      <a
+        href="/admin/login"
+        class="px-6 py-1 bg-slate-900 flex flex-row justify-center text-white font-semibold rounded-lg border-2 border-blue-300 hover:bg-gray-900 hover:border-gray-500 transition duration-300 ease-in-out shadow-lg"
+      >
+        <img src="/images/logo3.png" alt="Login Icon" class="w-5 h-5 mr-2" />
+        Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero-section bg-gray-800 text-white text-center py-8 px-4">
+  <!-- Logo and Text Container -->
+  <div
+    class="flex flex-col items-center justify-center md:flex-row md:items-center md:justify-center"
+  >
+    <img
+      src="/images/logo1.png"
+      alt="Company Logo"
+      class="hero-logo max-w-xs md:max-w-md mb-4 md:mb-0"
+    />
+    <div class="md:ml-8">
+      <!-- Hero Headline -->
+      <h1 class="text-2xl md:text-4xl font-bold mb-2">
+        Rent the Best Heavy Equipment for Your Next Big Project
+      </h1>
+      <p class="text-lg md:text-xl">Your Premier Access Platform Specialist.</p>
+    </div>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow mt-8 max-w-full mx-auto overflow-hidden relative">
+    <div class="slideshow-container flex">
+      <img src="<%=slide1%>" alt="Slide 1" class="w-full" />
+      <img src="<%=slide2%>" alt="Slide 2" class="w-full" />
+      <img src="<%=slide3%>" alt="Slide 3" class="w-full" />
+    </div>
+  </div>
+</header>
+
+<!-- jQuery for Interactivity (If needed) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Slideshow Script
+    // Removed the slideshow transition to keep it static
+    // const slideshowContainer = $(".slideshow-container");
+    // const slides = $(".slideshow img");
+    // let currentSlide = 0;
+    // const slideWidth = slides.width();
+    // function showNextSlide() {
+    //   currentSlide = (currentSlide + 1) % slides.length;
+    //   slideshowContainer.css(
+    //     "transform",
+    //     "translateX(" + -slideWidth * currentSlide + "px)"
+    //   );
+    // }
+    // setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+  });
+</script>

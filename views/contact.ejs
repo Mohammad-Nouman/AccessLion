@@ -1,0 +1,271 @@
+<!-- views/contact.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/homePage.css" />
+    <link rel="icon" href="/images/logo2.png" type="image/png" />
+    <style>
+      .form-container {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid blue;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .form-input:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 1px #4a90e2;
+      }
+
+      .contact-info {
+        animation: slideInRight 1s ease-out;
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(50%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .contact-info img {
+        max-width: 250px; /* Increased logo size */
+        margin-bottom: 1rem;
+      }
+
+      .contact-info a {
+        color: #4a90e2;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+        color: #003d7a;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <%- include('partials/header') %>
+    <!-- Page Header -->
+    <main class="max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-10">
+      <!-- Form Container -->
+      <div
+        id="formContainer"
+        class="bg-white shadow-lg rounded-lg p-8 form-container lg:w-2/3"
+      >
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">
+          Ready to Start Hiring?
+        </h2>
+        <p class="text-gray-600 mb-6">
+          Fill in the Trading Account Application and follow the instructions:
+          <br />
+          The fastest way to contact Access Hire Middle East is to give us a
+          call. <br />Our best contact details are to the right. Alternately,
+          use the form below: <br />
+        </p>
+        <form
+          id="contactForm"
+          action="/send-email"
+          method="post"
+          class="space-y-6"
+        >
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none form-input"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700"
+              >Phone & Whatsapp</label
+            >
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none form-input"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Email</label
+            >
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none form-input"
+            />
+          </div>
+
+          <div>
+            <label
+              for="business"
+              class="block text-sm font-medium text-gray-700"
+              >Business</label
+            >
+            <input
+              id="business"
+              name="business"
+              type="text"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none form-input"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none form-input"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out"
+          >
+            SEND IT
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <aside
+        class="contact-info bg-white shadow-lg rounded-lg p-8 lg:w-1/2 xl:w-1/3 2xl:w-1/4"
+      >
+        <img src="/images/logo4.png" alt="Company Logo" class="mx-auto" />
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 text-center">
+          Contact Us
+        </h2>
+        <p class="text-gray-600 mb-4 text-center">
+          For more information or to discuss your needs with our experts, please
+          contact us at:
+        </p>
+        <ul class="list-disc list-inside text-gray-600">
+          <li class="mb-2">
+            Phone & Whatsapp:
+            <a href="tel:+9715428111111" class="hover:underline"
+              >+971 54 2811111</a
+            >
+          </li>
+          <li class="mb-2">
+            Email:
+            <a href="mailto:info@accesslion.com" class="hover:underline"
+              >info@accesslion.com</a
+            >
+          </li>
+          <li>
+            Location: Our office is located in Madinat Zayed, Abu Dhabi, Al
+            Dhafra Region, serving the entire UAE
+          </li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- Loading overlay (hidden by default) -->
+    <div
+      id="loadingOverlay"
+      class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center"
+    >
+      <div class="loader"></div>
+    </div>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const loadingOverlay = document.getElementById("loadingOverlay");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        loadingOverlay.classList.remove("hidden");
+
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        const response = await fetch("/send-email", {
+          method: "POST",
+          body: data,
+        });
+
+        loadingOverlay.classList.add("hidden");
+        if (response.ok) {
+          alert("Order Placed Successfully!");
+        } else {
+          alert("Unable to record Your Order");
+        }
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+      <p>&copy; 2024 Heavy Equipment Rental. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get("type");
+        const item = urlParams.get("item");
+        const messageField = document.getElementById("message");
+
+        if (type && item) {
+          messageField.value = `I want to ${
+            type.charAt(0).toUpperCase() + type.slice(1)
+          } ${decodeURIComponent(item)}`;
+        }
+      });
+    </script>
+  </body>
+</html>

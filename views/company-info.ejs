@@ -1,0 +1,215 @@
+<!-- views/company-info.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Information - Access Lion</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/homePage.css" />
+    <link rel="icon" href="/images/logo2.png" type="image/png" />
+    <style>
+      /* Animations */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 2s ease-in-out;
+      }
+
+      .fade-in-delayed {
+        animation: fadeInUp 2s ease-in-out;
+        animation-delay: 0.5s;
+        animation-fill-mode: both;
+      }
+
+      .fade-in-delayed-2 {
+        animation: fadeInUp 1s ease-in-out;
+        animation-delay: 0.8s;
+        animation-fill-mode: both;
+      }
+
+      .hover-grow:hover {
+        transform: scale(1.05);
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .hero {
+        background-image: url("/images/hero-background.jpg"); /* Replace with your image */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 4rem 0;
+      }
+
+      .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 2rem;
+      }
+
+      .cta-btn {
+        background-color: #f6ad55;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-btn:hover {
+        background-color: #f6ad55cc;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Include the header partial -->
+    <%- include('partials/header') %>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+      <div class="container mx-auto px-6 hero-overlay text-center">
+        <h2 class="text-5xl font-bold">Welcome to Access Lion</h2>
+        <p class="mt-4 text-xl max-w-2xl mx-auto">
+          At Access Lion, we are dedicated to elevating the standards of powered
+          access solutions across a wide range of industries. Our commitment to
+          excellence and safety ensures that every client receives the best
+          equipment and service, no matter where they are located.
+        </p>
+        <a href="/contact" class="cta-btn mt-6 inline-block hover-grow"
+          >Contact Us</a
+        >
+      </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section class="container mx-auto px-6 py-12">
+      <h3 class="section-title text-4xl text-center fade-in">
+        Our Comprehensive Equipment Fleet
+      </h3>
+      <p class="section-content text-center max-w-4xl mx-auto fade-in-delayed">
+        We offer a full spectrum of access equipment to handle any project
+        requirement throughout the entire UAE, ensuring flexibility and
+        efficiency for your specific needs.
+      </p>
+
+      <!-- Service Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div class="bg-white p-6 rounded-lg shadow-lg fade-in hover-grow">
+          <h4 class="text-2xl font-bold mb-4">Equipment Rentals</h4>
+          <p class="text-gray-600">
+            Access Lion has an extensive selection of access equipment. Our
+            experienced team is dedicated to helping you find the perfect
+            equipment to meet your project’s budget and performance
+            requirements.
+          </p>
+        </div>
+        <div
+          class="bg-white p-6 rounded-lg shadow-lg fade-in-delayed hover-grow"
+        >
+          <h4 class="text-2xl font-bold mb-4">Pre-Delivery Training</h4>
+          <p class="text-gray-600">
+            At Access Lion, we prioritize safety and efficiency by providing
+            comprehensive training before equipment delivery. This ensures that
+            all operators are proficient and ready to handle their tasks safely.
+          </p>
+        </div>
+        <div
+          class="bg-white p-6 rounded-lg shadow-lg fade-in-delayed-2 hover-grow"
+        >
+          <h4 class="text-2xl font-bold mb-4">Total Equipment Solutions</h4>
+          <p class="text-gray-600">
+            We offer a full spectrum of access equipment, ensuring flexibility
+            and efficiency for your specific project requirements across the
+            UAE.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commitment to Safety Section with Image -->
+    <section
+      class="container mx-auto px-6 py-12 bg-gray-50 flex items-center gap-8 fade-in"
+    >
+      <div class="w-full lg:w-1/2">
+        <img
+          src="/images/solution.png"
+          alt="Commitment to Safety"
+          class="rounded-lg shadow-lg hover-grow"
+        />
+      </div>
+      <div class="w-full lg:w-1/2">
+        <h3 class="section-title text-4xl">Industry Solutions</h3>
+        <p class="section-content max-w-lg">
+          Learn how Access Lion supports complex projects with specialized
+          equipment tailored for sectors like construction, maintenance, and
+          events. Read testimonials from our satisfied clients who trust us for
+          providing reliable and efficient solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Industry Solutions Section with Image -->
+    <section
+      class="container mx-auto px-6 py-12 flex items-center gap-8 bg-white fade-in"
+    >
+      <div class="w-full lg:w-1/2">
+        <h3 class="section-title text-4xl">Commitment to Safety</h3>
+        <p class="section-content max-w-lg">
+          At Access Lion, safety is paramount. We enforce strict maintenance
+          protocols and comply with the latest safety regulations to ensure our
+          equipment operates flawlessly. Our training programs also equip
+          operators with necessary safety practices to mitigate risks.
+        </p>
+      </div>
+      <div class="w-full lg:w-1/2">
+        <img
+          src="/images/safety_first.png"
+          alt="Industry Solutions"
+          class="rounded-lg shadow-lg hover-grow"
+        />
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="container mx-auto px-6 py-12 bg-gray-50 fade-in"
+    >
+      <h3 class="section-title text-4xl text-center">Contact Us</h3>
+      <p class="section-content text-center max-w-4xl mx-auto mb-6">
+        For more information or to discuss your needs with our experts, please
+        contact us.
+      </p>
+      <div class="flex flex-col items-center">
+        <p class="text-lg text-gray-700">
+          <strong>Phone:</strong> +971 54 2811111
+        </p>
+        <p class="text-lg text-gray-700">
+          <strong>Email:</strong> info@accesslion.com
+        </p>
+        <p class="text-lg text-gray-700">
+          <strong>Location:</strong> Madinat Zayed, Abu Dhabi, Al Dhafra Region,
+          serving the entire UAE
+        </p>
+        <a href="/" class="cta-btn mt-4 inline-block hover-grow"
+          >Visit our website</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+      <p>&copy; 2024 Access Lion. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

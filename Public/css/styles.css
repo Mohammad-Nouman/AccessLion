@@ -1,0 +1,286 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+}
+
+.top-bar {
+  background-color: #30323d;
+  color: white;
+  display: flex;
+  justify-content: end;
+  padding: 10px 200px;
+  align-items: center;
+  gap: 3rem;
+}
+
+.top-bar .chat-with-us a {
+  color: #ff6f61;
+  text-decoration: none;
+  border: 2px solid #c3172f;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.top-bar .contact-info {
+  text-align: center;
+}
+
+#flags {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#flags ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#flags ul li {
+  margin: 0 2px;
+}
+
+#flags ul li a {
+  display: block;
+  width: 24px;
+  height: 16px;
+  background-size: cover;
+}
+
+/* Add specific flag styles here */
+.flag.Arabic {
+  background-image: url("/images/Flag-Saudi-Arabia.jpg");
+}
+
+.flag.zh-CN {
+  background-image: url("/images/Flag-China.jpg");
+}
+
+.flag.English {
+  background-image: url("/images/Flag-England.svg.png");
+}
+
+.flag.Filipino {
+  background-image: url("/images/Flag-Flipino.png");
+}
+
+.flag.Hindi {
+  background-image: url("/images/Flag-India.jpg");
+}
+
+.flag.Russian {
+  background-image: url("/images/Flag-Russia.jpg");
+}
+
+.logo-and-motto {
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 12px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.motto {
+  font-size: 18px;
+}
+
+.nav-bar {
+  background-color: #c3172f;
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar ul li {
+  margin: 0 15px;
+}
+
+.nav-bar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+} /* Main menu styles */
+#menu-main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-main-menu > li {
+  position: relative;
+}
+
+#menu-main-menu > li > a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #c3172f;
+}
+
+#menu-main-menu > li > a:hover {
+  background-color: #ff8561; /* Lighten the background on hover */
+}
+
+/* First-level submenu styles */
+#menu-main-menu .custom-sub-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none; /* Hide submenu by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #30323d;
+  z-index: 1000;
+}
+
+#menu-main-menu .custom-sub-menu li {
+  position: relative;
+}
+
+#menu-main-menu .custom-sub-menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #30323d;
+}
+
+#menu-main-menu .custom-sub-menu li a:hover {
+  background-color: #c3172f; /* Lighten the background on hover */
+}
+
+/* Show submenu when hovering over main menu item */
+#menu-main-menu > li:hover > .custom-sub-menu {
+  display: block;
+}
+
+/* Show second-level submenu when hovering over first-level submenu item */
+#menu-main-menu > li > .custom-sub-menu > li:hover > .custom-sub-menu {
+  display: block;
+  top: 0;
+  left: 100%;
+}
+
+/* Second-level submenu styles */
+.custom-sub-menu .custom-sub-menu {
+  top: 0;
+  left: 100%;
+  display: none; /* Hide nested submenus by default */
+  position: absolute;
+  background-color: #30323d;
+}
+
+.custom-sub-menu .custom-sub-menu li {
+  position: relative;
+}
+
+.custom-sub-menu .custom-sub-menu li a {
+  background-color: #30323d;
+}
+
+.custom-sub-menu .custom-sub-menu li a:hover {
+  background-color: #c3172f; /* Lighten the background on hover */
+}
+
+.footer {
+  background-color: hsl(231, 12%, 21%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.footer:first-child {
+  padding-top: 2%;
+}
+
+.footer a {
+  color: #ffffff;
+}
+.footer .widget-title h3 {
+  color: #ff6f61;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer ul li {
+  margin-bottom: 4px 7px;
+}
+.footer .social-media img {
+  width: 20px;
+  margin-right: 10px;
+}
+.footer .back-to-top {
+  width: 130px;
+  margin-left: 47%;
+  padding: 7px;
+  background: #e91734;
+  text-align: center;
+}
+.footer .back-to-top a {
+  color: #ffffff;
+  font-weight: bold;
+}
+.footer .bottom-links {
+  text-align: center;
+}
+.footer .bottom-links ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.footer .bottom-links ul li {
+  list-style: none;
+}
+
+#footerlist {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px 0px;
+  list-style: none;
+  gap: 2%;
+  background-color: #414042;
+}
+
+#footerlist li {
+  color: white;
+  font-size: large;
+}
+
+#footerlist li a {
+  color: white;
+  text-decoration: none;
+}
+
+#footerlist li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  line-height: 1.7;
+  margin: 0;
+}

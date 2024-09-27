@@ -1,0 +1,149 @@
+<!-- views/shop.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - All Categories</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/homePage.css" />
+    <link rel="icon" href="/images/logo2.png" type="image/png" />
+    <style>
+      .category-header {
+        background-color: #f6ad55; /* Custom color for headers */
+        color: white;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.375rem;
+      }
+
+      .subcategory-list {
+        background-color: #fff;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.375rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .subcategory-item {
+        display: block;
+        padding: 0.5rem 0;
+        color: #2d3748;
+        font-weight: 500;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .subcategory-item:hover {
+        color: #f6ad55; /* Hover color */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <%- include('partials/header') %>
+    <!-- Page Header -->
+    <header class="bg-gray-800 text-white p-6">
+      <h1 class="text-4xl font-bold">Shop All Categories</h1>
+      <p class="text-lg mt-2">
+        Explore all our equipment and services across various industries.
+      </p>
+    </header>
+
+    <!-- Categories Container -->
+    <section class="container mx-auto px-6 py-10">
+      <!-- Access Hire Equipment Category -->
+      <div class="category">
+        <h2 class="category-header text-2xl font-bold">
+          Access Hire Equipment
+        </h2>
+        <div class="subcategory-list">
+          <a href="/category/scissor-lifts" class="subcategory-item"
+            >Scissor Lifts for Hire</a
+          >
+          <a href="/category/diesel-scissor-lifts" class="subcategory-item"
+            >Diesel Scissor Lift Hire</a
+          >
+          <a href="/category/electric-scissor-lifts" class="subcategory-item"
+            >Electric Scissor Lifts for Hire</a
+          >
+          <a href="/category/boom-lifts" class="subcategory-item"
+            >Articulated Boom Lift Hire</a
+          >
+          <a href="/category/telescopic-boom-lifts" class="subcategory-item"
+            >Telescopic Boom Lift Hire</a
+          >
+        </div>
+      </div>
+
+      <!-- Material Handling Equipment Hire Category -->
+      <div class="category">
+        <h2 class="category-header text-2xl font-bold">
+          Material Handling Equipment Hire
+        </h2>
+        <div class="subcategory-list">
+          <a href="/category/telehandlers" class="subcategory-item"
+            >Telehandlers for Hire</a
+          >
+          <a href="/category/cranes" class="subcategory-item">Cranes</a>
+          <a href="/category/forklifts" class="subcategory-item"
+            >Forklift Hire & Rental</a
+          >
+          <a href="/category/backhoes" class="subcategory-item"
+            >Backhoe For Hire</a
+          >
+          <a href="/category/skidsteers" class="subcategory-item"
+            >Skid Steer Hire</a
+          >
+        </div>
+      </div>
+
+      <!-- Oil and Gas Equipment Hire Category -->
+      <div class="category">
+        <h2 class="category-header text-2xl font-bold">
+          Oil and Gas Equipment Hire
+        </h2>
+        <div class="subcategory-list">
+          <a href="/category/hurricane-boosters" class="subcategory-item"
+            >Hurricane Boosters Hire</a
+          >
+          <a href="/category/desiccant-driers" class="subcategory-item"
+            >Desiccant Dryers for Hire</a
+          >
+          <a href="/category/nitrogen-generators" class="subcategory-item"
+            >Nitrogen Generator Hire</a
+          >
+          <a href="/category/dnv-frames" class="subcategory-item"
+            >DNV Frames for Hire</a
+          >
+          <a href="/category/ancillary" class="subcategory-item">Ancillary</a>
+        </div>
+      </div>
+
+      <!-- Ancillary Equipment Category -->
+      <div class="category">
+        <h2 class="category-header text-2xl font-bold">Ancillary</h2>
+        <div class="subcategory-list">
+          <a href="/category/air-compressors" class="subcategory-item"
+            >Industrial Air Compressors</a
+          >
+          <a href="/category/generators" class="subcategory-item"
+            >Industrial Generators For Hire</a
+          >
+          <a href="/category/lighting-towers" class="subcategory-item"
+            >LED Lighting Tower Hire</a
+          >
+          <a href="/category/mobile-security-cameras" class="subcategory-item"
+            >Mobile Security Cameras</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+      <p>&copy; 2024 Heavy Equipment Rental. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

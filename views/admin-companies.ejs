@@ -1,0 +1,159 @@
+<section class="categories max-w-6xl mx-auto mt-10">
+  <!-- Back Button -->
+  <div class="mb-6">
+    <button
+      id="back-button"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Back
+    </button>
+  </div>
+
+  <!-- Title -->
+  <h1 class="text-3xl font-bold text-center mt-10">
+    Companies in <%= categoryName.replace(/-/g, ' ').replace(/\b\w/g, char =>
+    char.toUpperCase()) %>
+  </h1>
+
+  <!-- Company Table -->
+  <div class="mt-10 bg-white rounded-lg shadow-lg">
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th
+            class="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
+          >
+            Company
+          </th>
+          <th
+            class="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
+          >
+            Status
+          </th>
+          <th
+            class="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% companies.forEach(([company, status]) => { %>
+        <tr class="hover:bg-gray-100 transition ease-in-out duration-150">
+          <td
+            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+          >
+            <%= company %>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <span class="status-text"><%= status %></span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm">
+            <form
+              class="toggle-form"
+              data-company="<%= company %>"
+              data-status="<%= status %>"
+              data-category="<%= categoryName %>"
+            >
+              <button
+                type="submit"
+                class="toggle-button px-4 py-2 rounded-lg text-white <%= status === 'On' ? 'bg-red-500 hover:bg-red-700' : 'bg-green-500 hover:bg-green-700' %>"
+              >
+                <%= status === 'On' ? 'Hide' : 'Show' %>
+              </button>
+              <span class="loading hidden ml-2">Loading...</span>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  $(document).ready(function () {
+    // Handle the Show/Hide button click via AJAX
+    $(".toggle-form").on("submit", function (e) {
+      e.preventDefault();
+
+      var $form = $(this);
+      var companyName = $form.data("company");
+      var currentStatus = $form.data("status");
+      var categoryName = $form.data("category");
+      var action = currentStatus === "On" ? "Hide" : "Show";
+      var $button = $form.find(".toggle-button");
+      var $loading = $form.find(".loading");
+      var $statusText = $form.closest("tr").find(".status-text");
+
+      // Show loading text and disable the button
+      $loading.removeClass("hidden");
+      $button.prop("disabled", true);
+
+      // Make the AJAX request
+      $.ajax({
+        url: "/admin/category/" + categoryName,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+          companyName: companyName,
+          action: action,
+        }),
+        success: function (response) {
+          if (response.success) {
+            // Update the button text and status on success
+            var newStatus = response.newStatus;
+            $statusText.text(newStatus);
+            $button.text(newStatus === "On" ? "Hide" : "Show");
+            $button.toggleClass(
+              "bg-red-500 hover:bg-red-700",
+              newStatus === "On"
+            );
+            $button.toggleClass(
+              "bg-green-500 hover:bg-green-700",
+              newStatus === "Off"
+            );
+
+            // Update form's status data attribute
+            $form.data("status", newStatus);
+          } else {
+            alert("Failed to update the company status.");
+          }
+        },
+        error: function () {
+          alert("An error occurred while processing your request.");
+        },
+        complete: function () {
+          // Hide loading text and re-enable the button
+          $loading.addClass("hidden");
+          $button.prop("disabled", false);
+        },
+      });
+    });
+
+    // Handle the Back button click to load the previous content via AJAX
+    $("#back-button").on("click", function (e) {
+      e.preventDefault();
+
+      // Show a loading indicator or message in the content area while the request is processed
+      $("#content-area").html(
+        '<div class="text-center mt-10"><svg class="animate-spin h-10 w-10 text-gray-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg><p>Loading...</p></div>'
+      );
+
+      // Make an AJAX request to load the previous content (dashboard or category page)
+      $.ajax({
+        url: "/admin/dashboard/categories", // Replace with the actual URL that serves the previous content
+        type: "GET",
+        success: function (data) {
+          // Inject the returned HTML content into the content area
+          $("#content-area").html(data);
+        },
+        error: function () {
+          $("#content-area").html(
+            '<p class="text-red-500">Failed to load previous content. Please try again later.</p>'
+          );
+        },
+      });
+    });
+  });
+</script>

@@ -1,0 +1,197 @@
+/* Custom Styles */
+.sidebar {
+  background-color: #1a202c;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  padding: 2rem 1rem;
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.sidebar a:hover {
+  color: #f6ad55;
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f7fafc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.profile-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+.profile-card .info {
+  padding: 1.5rem;
+}
+.profile-card .info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #2d3748;
+}
+.profile-card .info p {
+  color: #4a5568;
+}
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.content {
+  margin-left: 260px; /* Offset for the sidebar */
+  padding: 2rem;
+}
+
+.headContent {
+  margin-left: 240px; /* Offset for the sidebar */
+}
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #a0aec0;
+  border-radius: 10px;
+}
+
+/* Top Bar Styles */
+.top-bar {
+  background-color: #333; /* Dark background */
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.top-bar .text-sm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar a {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+.top-bar a:hover {
+  color: #f6ad55; /* Hover color */
+}
+
+.top-bar img {
+  width: 20px;
+  height: 20px;
+  margin-left: 0.5rem;
+}
+
+/* Navigation Bar Styles */
+nav {
+  background-color: #2d3748; /* Darker gray background */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #f6ad55; /* Hover color */
+}
+
+nav img {
+  height: 2.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#about-us {
+  position: relative;
+  overflow: hidden;
+}
+
+#about-us .bg-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.7; /* Control the background image's visibility */
+}
+
+#about-us .relative.z-10 {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .top-bar .text-sm {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .top-bar a {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    margin: 0.5rem 0;
+  }
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.bio {
+  max-height: 96px; /* Set the height to fit the scroll area */
+  overflow-y: auto;
+}
